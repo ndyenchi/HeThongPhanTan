@@ -32,7 +32,7 @@ public interface SinhvienRepository extends JpaRepository<Sinhvien, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "update table SINHVIEN t set  SET t.MASV =:masv , t.HO =:ho ,t.TEN =:ten ,t.CMND =:cmnd ," +
+    @Query(value = "update table SINHVIEN t  SET t.MASV =:masv , t.HO =:ho ,t.TEN =:ten ,t.CMND =:cmnd ," +
             "t.DIACHI =:diachi ,t.EMAIL =:email ,t.GIOITINH =:gioitinh ,t.HINHANH =:hinhanh , t.NGAYSINH=:ngaysinh, t.SDT=:sdt" +
             "WHERE t.masv=:id",nativeQuery = true)
     void edit(@Param("masv") String a, @Param("ho") String b, @Param("ten") String c,
