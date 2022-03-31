@@ -73,9 +73,9 @@ public class SinhVienService {
                 .map(this::convertEntityToDto)
                 .collect(Collectors.toList());
     }
-    public void edit(SinhvienDto sv){
+    public void edit(SinhvienDto sv, String masv){
         repo.edit(sv.getMasv(),sv.getHo(), sv.getTen(),sv.getCmnd(),sv.getDiachi(),
-                sv.getEmail(),sv.getGioitinh(), sv.getHinhanh(), sv.getNgaysinh(), sv.getSdt());
+                sv.getEmail(),sv.getGioitinh(), sv.getHinhanh(), sv.getNgaysinh(), sv.getSdt(), masv);
 
     }
 }

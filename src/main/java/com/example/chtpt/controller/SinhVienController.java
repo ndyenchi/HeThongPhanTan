@@ -24,9 +24,9 @@ public class SinhVienController {
         SinhvienDto dto=sinhVienService.selectbyID(maKhoa);
         return dto;
     }
-    @PostMapping("edit")
-    public void edit(@RequestBody SinhvienDto Sinhvien) {
-        sinhVienService.edit(Sinhvien);
+    @PostMapping("edit/{masv}")
+    public void edit(@PathVariable String masv,@RequestBody SinhvienDto Sinhvien) {
+        sinhVienService.edit(Sinhvien, masv);
     }
     @DeleteMapping("delete/{maSV}")
     public void delete (@PathVariable String maSV){
