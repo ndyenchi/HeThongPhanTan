@@ -25,8 +25,8 @@ public class SinhVienController {
         return dto;
     }
     @PostMapping("edit")
-    public void edit(@RequestBody Sinhvien Sinhvien) {
-        sinhVienService.save(Sinhvien);
+    public void edit(@RequestBody SinhvienDto Sinhvien) {
+        sinhVienService.edit(Sinhvien);
     }
     @DeleteMapping("delete/{maSV}")
     public void delete (@PathVariable String maSV){

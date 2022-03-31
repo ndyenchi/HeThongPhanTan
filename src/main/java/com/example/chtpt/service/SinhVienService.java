@@ -44,6 +44,7 @@ public class SinhVienService {
     }
 
     public <S extends Sinhvien> S save(S entity) {
+
         return repo.save(entity);
     }
 
@@ -71,6 +72,11 @@ public class SinhVienService {
         return repo.getByMalop(maLop).stream()
                 .map(this::convertEntityToDto)
                 .collect(Collectors.toList());
+    }
+    public void edit(SinhvienDto sv){
+        repo.edit(sv.getMasv(),sv.getHo(), sv.getTen(),sv.getCmnd(),sv.getDiachi(),
+                sv.getEmail(),sv.getGioitinh(), sv.getHinhanh(), sv.getNgaysinh(), sv.getSdt());
+
     }
 }
 
