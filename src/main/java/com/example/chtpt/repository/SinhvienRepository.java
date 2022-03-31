@@ -25,4 +25,9 @@ public interface SinhvienRepository extends JpaRepository<Sinhvien, String> {
                 @Param("cmnd") String d, @Param("diachi") String e, @Param("email") String f,
                 @Param("gioitinh") String g, @Param("hinhanh") String h,@Param("ngaysinh") Date i,
                 @Param("sdt") String k, @Param("malop") String l);
+    @Modifying
+    @Transactional
+    @Query(value = "SELECT * FROM SINHVIEN t WHERE t.MALOP=:maLop", nativeQuery = true)
+    List<Sinhvien> getByMalop(@Param("maLop") String ma);
+
 }

@@ -28,14 +28,20 @@ public class SinhVienController {
     public void edit(@RequestBody Sinhvien Sinhvien) {
         sinhVienService.save(Sinhvien);
     }
-    @DeleteMapping("delete")
-    public void delete (@RequestBody String id){
-        sinhVienService.deleteById(id);
+    @DeleteMapping("delete/{maSV}")
+    public void delete (@RequestBody String maSV){
+        sinhVienService.deleteById(maSV);
     }
     @PostMapping("insert")
     public void insert ( @RequestBody SinhvienDto d){
         sinhVienService.insert(d.getMalopMalop(),d.getMasv(),d.getHo(),d.getTen(),d.getDiachi(),
         d.getNgaysinh(),d.getSdt(),d.getEmail(),d.getGioitinh(),d.getCmnd()
                 ,d.getMalopTenlop(),d.getHinhanh());
+    }
+    // lấy toàn bộ danh sách sinh viên theo mã lop
+    @GetMapping("List/{maLop}")
+    public List<SinhvienDto> getByMaLop(@PathVariable String maLop){
+        List<SinhvienDto> dto=sinhVienService.getByMalop(maLop);
+        return dto;
     }
 }

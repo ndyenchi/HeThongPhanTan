@@ -33,9 +33,9 @@ public class LopController {
     public void edit(@RequestBody Lop lop) {
         lopService.save(lop);
     }
-    @DeleteMapping("delete")
-    public void delete (@RequestBody String id){
-        lopService.deleteById(id);
+    @DeleteMapping("delete/{maLop}")
+    public void delete (@PathVariable String maLop){
+        lopService.deleteById(maLop);
     }
     @PostMapping("insert")
     public void insert ( @RequestBody LopDto dto){

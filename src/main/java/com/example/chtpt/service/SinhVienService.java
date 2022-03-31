@@ -67,7 +67,11 @@ public class SinhVienService {
         repo.insert(e.getMasv(),e.getHo(),e.getTen(),e.getCmnd(),e.getDiachi(),e.getEmail(),
         e.getGioitinh(),e.getHinhanh(),e.getNgaysinh(),e.getSdt(), e.getMalop().getMalop());
     }
-
+    public List<SinhvienDto> getByMalop(String maLop){
+        return repo.getByMalop(maLop).stream()
+                .map(this::convertEntityToDto)
+                .collect(Collectors.toList());
+    }
 }
 
 

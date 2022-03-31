@@ -29,12 +29,13 @@ public class KhoaController {
     public void edit(@RequestBody Khoa khoa) {
         khoaService.save(khoa);
     }
-    @DeleteMapping("delete")
-    public void delete (@RequestBody String id){
-        khoaService.deleteById(id);
+    @DeleteMapping("delete/{maKhoa}")
+    public void delete (@PathVariable String maKhoa){
+        khoaService.deleteById(maKhoa);
     }
     @PostMapping("insert")
     public void insert (@RequestBody Khoa khoa){
         khoaService.insert(khoa.getMakhoa(),khoa.getTenkhoa());
     }
+
 }
