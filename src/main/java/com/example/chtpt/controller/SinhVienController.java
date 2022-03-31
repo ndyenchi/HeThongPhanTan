@@ -24,12 +24,12 @@ public class SinhVienController {
         SinhvienDto dto=sinhVienService.selectbyID(maKhoa);
         return dto;
     }
-    @PostMapping("/edit")
+    @PostMapping("edit")
     public void edit(@RequestBody Sinhvien Sinhvien) {
         sinhVienService.save(Sinhvien);
     }
     @DeleteMapping("delete/{maSV}")
-    public void delete (@RequestBody String maSV){
+    public void delete (@PathVariable String maSV){
         sinhVienService.deleteById(maSV);
     }
     @PostMapping("insert")
