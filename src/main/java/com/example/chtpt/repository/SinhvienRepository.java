@@ -32,9 +32,9 @@ public interface SinhvienRepository extends JpaRepository<Sinhvien, String> {
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE SINHVIEN t SET t.ho =:ho ,t.ten =:ten ,t.cmnd =:cmnd ,t.diachi =:diachi ," +
-            "t.email =:email ,t.gioitinh =:gioitinh ,t.hinhanh =:hinhanh , t.ngaysinh=:ngaysinh, t.sdt=:sdt" +
-            "WHERE t.masv=:id")
+    @Query(value = "update  SINHVIEN t  SET  t.HO =:ho ,t.TEN =:ten ,t.CMND =:cmnd ," +
+            "t.DIACHI =:diachi ,t.EMAIL =:email ,t.GIOITINH =:gioitinh ,t.HINHANH =:hinhanh , t.NGAYSINH=:ngaysinh, t.SDT=:sdt" +
+            "WHERE t.masv=:id",nativeQuery = true)
     void edit(@Param("masv") String a, @Param("ho") String b, @Param("ten") String c,
                 @Param("cmnd") String d, @Param("diachi") String e, @Param("email") String f,
                 @Param("gioitinh") String g, @Param("hinhanh") String h,@Param("ngaysinh") Date i,
